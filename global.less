@@ -1,0 +1,902 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+
+  span {
+    color: white;
+  }
+}
+
+:root {
+  --borda: #c6af59;
+  --borda-container: #d8c8b2;
+  --icone-classe: url("/imagens/icone-classe.png");
+  --icone-velocidade: url("/imagens/velocidade.png");
+  --icone-vida: url("/imagens/vida.png");
+  --icone-vida-add-1: url("/imagens/vida-add-1.png");
+  --icone-vida-add-2: url("/imagens/vida-add-2.png");
+
+  --nome: url("/imagens/nome.png");
+  --classe: url("/imagens/classe.png");
+  --vigor: url("/imagens/vigor.png");
+
+  --icone-arma-1: url("/imagens/arma-1.png");
+  --nome-arma-1: url("/imagens/nome-arma-1.png");
+  --icone-especial-arma-1: url("/imagens/especial-arma-1.png");
+  --icone-ataque-arma-1: url("/imagens/ataque-arma-1.png");
+  --icone-distancia-arma-1: url("/imagens/distancia-arma-1.png");
+  --icone-dado-arma-1: url("/imagens/dado-arma-1.png");
+
+  --icone-arma-2: url("/imagens/arma-2.png");
+  --nome-arma-2: url("/imagens/nome-arma-2.png");
+  --icone-especial-arma-2: url("/imagens/especial-arma-1.png");
+  --icone-ataque-arma-2: url("/imagens/ataque-arma-2.png");
+  --icone-distancia-arma-2: url("/imagens/distancia-arma-2.png");
+  --icone-dado-arma-2: url("/imagens/dado-arma-2.png");
+
+  --icone-arma-3: url("/imagens/arma-3.png");
+  --nome-arma-3: url("/imagens/nome-arma-3.png");
+  --icone-especial-arma-3: url("/imagens/especial-arma-1.png");
+  --icone-ataque-arma-3: url("/imagens/ataque-arma-3.png");
+  --icone-distancia-arma-3: url("/imagens/distancia-arma-3.png");
+  --icone-dado-arma-3: url("/imagens/dado-arma-3.png");
+
+  --icone-magia-1: url("/imagens/magia-1.png");
+  --nome-magia-1: url("/imagens/nome-magia-1.png");
+  --icone-magia-1-icone-1: url("/imagens/magia-1-icone-1.png");
+  --icone-magia-1-icone-2: url("/imagens/magia-1-icone-2.png");
+  --icone-magia-1-icone-3: url("/imagens/magia-1-icone-3.png");
+
+  --icone-magia-2: url("/imagens/magia-2.png");
+  --nome-magia-2: url("/imagens/nome-magia-2.png");
+  --icone-magia-2-icone-1: url("/imagens/magia-2-icone-1.png");
+  --icone-magia-2-icone-2: url("/imagens/magia-2-icone-2.png");
+  --icone-magia-2-icone-3: url("/imagens/magia-2-icone-3.png");
+
+  --icone-magia-3: url("/imagens/magia-3.png");
+  --nome-magia-3: url("/imagens/nome-magia-3.png");
+  --icone-magia-3-icone-1: url("/imagens/magia-3-icone-1.png");
+  --icone-magia-3-icone-2: url("/imagens/magia-3-icone-2.png");
+
+  --icone-magia-4: url("/imagens/magia-4.png");
+  --nome-magia-4: url("/imagens/nome-magia-4.png");
+  --magia-4-habilidade: url("/imagens/magia-4-habilidade.png");
+
+  --icone-xp: url("/imagens/xp.png");
+
+  --icone-nat20: url("/imagens/nat20.png");
+
+  // --imagem-background: url("/imagens/bg.png");
+  --background: #208291;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  background-color: #917858;
+
+  .card {
+    min-width: 1280px;
+    height: 550px;
+    border: solid 5px var(--borda-container);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-image: var(--imagem-background);
+    background-color: var(--background);
+
+    .container-esquerda {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      width: 500px;
+      .nome {
+        height: 85px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .container-nome {
+          border: 3px solid var(--borda);
+          border-radius: 8px;
+          background-color: #181313;
+          width: 382px;
+          height: 100%;
+
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 5px;
+          .personagem {
+            width: 111px;
+            height: 65px;
+            background-image: var(--nome);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .subclasse {
+            border: 3px solid var(--borda);
+            border-radius: 8px;
+            width: 122px;
+            height: 57px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 5px;
+            background-image: var(--classe);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .icone-classe {
+            width: 70px;
+            height: 70px;
+            background-image: var(--icone-classe);
+            background-size: cover;
+          }
+        }
+
+        .velocidade {
+          width: 85px;
+          height: 85px;
+          background-image: var(--icone-velocidade);
+          background-size: cover;
+          border: 3px solid var(--borda);
+          border-radius: 8px;
+        }
+      }
+
+      .vigor {
+        height: 85px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        border: 3px solid var(--borda);
+        border-radius: 8px;
+
+        background-color: #181313;
+
+        .container-vigor {
+          display: flex;
+          padding: 0 4px;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+
+          .nome-vigor {
+            width: 121px;
+            height: 65px;
+            background-image: var(--vigor);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .container-vida {
+            .vida {
+              width: 322px;
+              height: 32px;
+              background-image: var(--icone-vida);
+            }
+
+            .container-vida-check {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+
+              .vida-check-1 {
+                display: flex;
+                gap: 5px;
+
+                input {
+                  width: 20px;
+                }
+                .vida-add-1 {
+                  width: 107px;
+                  height: 38px;
+                  background-image: var(--icone-vida-add-1);
+                  border: solid 3px var(--borda);
+                  border-radius: 8px;
+                }
+              }
+
+              .vida-check-2 {
+                display: flex;
+                gap: 5px;
+
+                input {
+                  width: 20px;
+                }
+                .vida-add-2 {
+                  width: 141px;
+                  height: 38px;
+                  background-image: var(--icone-vida-add-2);
+                  border: solid 3px var(--borda);
+                  border-radius: 8px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .arma-1,
+      .arma-2,
+      .arma-3 {
+        height: 85px;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        gap: 6px;
+
+        .container-arma-1,
+        .container-arma-2,
+        .container-arma-3 {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 382px;
+
+          background-color: #181313;
+          border-radius: 8px;
+          border: solid 3px var(--borda);
+
+          .imagem-arma-1,
+          .imagem-arma-2,
+          .imagem-arma-3 {
+            width: 84px;
+            height: 70px;
+            background-image: var(--icone-arma-1);
+          }
+
+          .imagem-arma-2 {
+            background-image: var(--icone-arma-2);
+          }
+
+          .imagem-arma-3 {
+            background-image: var(--icone-arma-3);
+          }
+
+          .nome-arma-1 {
+            width: 90px;
+            height: 70px;
+            background-image: var(--nome-arma-1);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .nome-arma-2 {
+            width: 90px;
+            height: 70px;
+            background-image: var(--nome-arma-2);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .nome-arma-3 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 105px;
+            padding-left: 10px;
+
+            .nome-arma-3-span {
+              width: 70px;
+              height: 70px;
+              background-image: var(--nome-arma-3);
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+            .checkbox-especial {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              gap: 0px;
+              height: 70px;
+
+              input[type="checkbox"] {
+                display: none; /* Esconde o input padrão */
+              }
+
+              label {
+                cursor: pointer;
+              }
+
+              label:before {
+                content: "";
+                display: inline-block;
+                width: 15px; /* Define o tamanho da bola do checkbox */
+                height: 15px; /* Define o tamanho da bola do checkbox */
+                border: 1px solid #000; /* Cor da borda do checkbox */
+                background-color: white;
+                border-radius: 50%; /* Torna a borda redonda, criando um círculo */
+              }
+
+              input[type="checkbox"]:checked + label:before {
+                background-color: #0075ff; /* Cor do preenchimento quando marcado */
+              }
+            }
+          }
+
+          .especial-arma-1,
+          .ataque-arma-1,
+          .distancia-arma-1,
+          .especial-arma-2,
+          .ataque-arma-2,
+          .distancia-arma-2,
+          .especial-arma-3,
+          .ataque-arma-3,
+          .distancia-arma-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            height: 66px;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 4px;
+
+            .imagem-arma-1,
+            .imagem-arma-2,
+            .imagem-arma-3 {
+              width: 32px;
+              height: 26px;
+              border-radius: 8px;
+              background-size: contain;
+              background-repeat: no-repeat;
+              background-position: center;
+            }
+
+            input {
+              height: 20px;
+              width: 20px;
+            }
+          }
+
+          .especial-arma-1 {
+            .especial {
+              background-image: var(--icone-especial-arma-1);
+            }
+          }
+
+          .ataque-arma-1 {
+            .ataque {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-ataque-arma-1);
+            }
+          }
+
+          .distancia-arma-1 {
+            .distancia {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-distancia-arma-1);
+            }
+          }
+
+          .especial-arma-2 {
+            .especial {
+              background-image: var(--icone-especial-arma-2);
+            }
+          }
+
+          .ataque-arma-2 {
+            .ataque {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-ataque-arma-2);
+            }
+          }
+
+          .distancia-arma-2 {
+            .distancia {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-distancia-arma-2);
+            }
+          }
+
+          .especial-arma-3 {
+            .especial {
+              background-image: var(--icone-especial-arma-3);
+            }
+          }
+
+          .ataque-arma-3 {
+            .ataque {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-ataque-arma-3);
+            }
+          }
+
+          .distancia-arma-3 {
+            .distancia {
+              width: 32px;
+              height: 65px;
+              background-image: var(--icone-distancia-arma-3);
+            }
+          }
+        }
+
+        .dado-arma-1,
+        .dado-arma-2,
+        .dado-arma-3 {
+          width: 85px;
+          height: 85px;
+          background-image: var(--icone-dado-arma-1);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+          background-color: #181313;
+          border: 3px solid var(--borda);
+          border-radius: 8px;
+        }
+
+        .dado-arma-2 {
+          background-image: var(--icone-dado-arma-2);
+        }
+
+        .dado-arma-3 {
+          background-image: var(--icone-dado-arma-3);
+        }
+      }
+    }
+
+    .container-direita {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+
+      width: 500px;
+
+      .magia-1 {
+        background-color: #181313;
+        height: 85px;
+        border: solid 3px var(--borda);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3px 0 5px;
+
+        .imagem-magia-1 {
+          width: 83px;
+          height: 70px;
+          background-image: var(--icone-magia-1);
+          border-radius: 8px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .nome-magia-1 {
+          width: 95px;
+          height: 70px;
+          background-image: var(--nome-magia-1);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .icones-magia-1 {
+          display: flex;
+          gap: 4px;
+          height: 64px;
+          width: 256px;
+
+          .mg-1-icone-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-1 {
+              width: 32px;
+              height: 64px;
+              background-image: var(--icone-magia-1-icone-1);
+              background-size: cover;
+              background-position: center;
+            }
+
+            span {
+              font-size: 22px;
+            }
+          }
+
+          .mg-1-icone-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-1 {
+              width: 32px;
+              height: 64px;
+              background-image: var(--icone-magia-1-icone-2);
+              background-size: cover;
+              background-position: center;
+            }
+
+            span {
+              font-size: 30px;
+            }
+          }
+
+          .mg-1-icone-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-1 {
+              width: 32px;
+              height: 32px;
+              background-image: var(--icone-magia-1-icone-3);
+            }
+
+            input {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      .magia-2 {
+        background-color: #181313;
+        height: 85px;
+        border: solid 3px var(--borda);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3px 0 5px;
+
+        .imagem-magia-2 {
+          width: 83px;
+          height: 70px;
+          background-image: var(--icone-magia-2);
+          border-radius: 8px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .nome-magia-2 {
+          width: 95px;
+          height: 70px;
+          background-image: var(--nome-magia-2);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .icones-magia-2 {
+          display: flex;
+          gap: 4px;
+          height: 64px;
+          width: 256px;
+
+          .mg-2-icone-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-2 {
+              width: 32px;
+              height: 64px;
+              background-image: var(--icone-magia-2-icone-1);
+              background-size: cover;
+              background-position: center;
+            }
+
+            span {
+              font-size: 22px;
+            }
+          }
+
+          .mg-2-icone-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-2 {
+              width: 32px;
+              height: 64px;
+              background-image: var(--icone-magia-2-icone-2);
+              background-size: cover;
+              background-position: center;
+            }
+
+            span {
+              font-size: 22px;
+            }
+          }
+
+          .mg-2-icone-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-2 {
+              width: 32px;
+              height: 32px;
+              background-image: var(--icone-magia-2-icone-3);
+            }
+
+            input {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      .magia-3 {
+        background-color: #181313;
+        height: 85px;
+        border: solid 3px var(--borda);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3px 0 5px;
+
+        .imagem-magia-3 {
+          width: 83px;
+          height: 70px;
+          background-image: var(--icone-magia-3);
+          border-radius: 8px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .nome-magia-3 {
+          width: 140px;
+          height: 70px;
+          background-image: var(--nome-magia-3);
+          background-size: contain;
+          background-repeat: no-repeat;
+          // background-position: ;
+        }
+
+        .icones-magia-3 {
+          display: flex;
+          gap: 4px;
+          height: 64px;
+
+          .mg-3-icone-1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-3 {
+              width: 32px;
+              height: 64px;
+              background-image: var(--icone-magia-3-icone-1);
+              background-size: cover;
+              background-position: center;
+            }
+
+            span {
+              font-size: 22px;
+            }
+          }
+
+          .mg-3-icone-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            border: solid 3px var(--borda);
+            border-radius: 8px;
+            padding: 0 5px;
+
+            .img-icone-mg-3 {
+              width: 32px;
+              height: 32px;
+              background-image: var(--icone-magia-3-icone-2);
+            }
+
+            span {
+              font-size: 22px;
+            }
+          }
+        }
+      }
+
+      .magia-4 {
+        background-color: #181313;
+        height: 85px;
+        border: solid 3px var(--borda);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 3px 0 5px;
+
+        .imagem-magia-4 {
+          width: 83px;
+          height: 70px;
+          background-image: var(--icone-magia-4);
+          border-radius: 8px;
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .nome-magia-4 {
+          width: 95px;
+          height: 70px;
+          background-image: var(--nome-magia-4);
+          background-size: contain;
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+
+        .icones-magia-4 {
+          display: flex;
+          border: solid 2px var(--borda);
+          border-radius: 8px;
+          padding: 2px;
+          gap: 10px;
+          align-items: center;
+          justify-content: space-around;
+          width: 256px;
+
+          .habilidade-magia-4 {
+            width: 159px;
+            height: 66px;
+            background-image: var(--magia-4-habilidade);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .checkbox-mg-4 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 5px;
+            width: 50px;
+            align-items: center;
+            justify-content: center;
+
+            input {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+
+      .xp {
+        height: 85px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 0 3px 0 5px;
+        gap: 5px;
+
+        .container-xp {
+          width: 320px;
+          border: solid 3px var(--borda);
+          border-radius: 8px;
+          height: 85px;
+          background-color: #181313;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .imagem-xp {
+            width: 58px;
+            height: 56px;
+            background-image: var(--icone-xp);
+            border-radius: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .checkbox-xp {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 5px;
+            padding: 10px;
+            width: 240px;
+            align-items: center;
+            justify-content: center;
+            input {
+              width: 25px;
+              height: 25px;
+            }
+          }
+        }
+
+        .nat20 {
+          width: 150px;
+          height: 85px;
+          border: solid 3px var(--borda);
+          border-radius: 8px;
+          height: 85px;
+          background-color: #181313;
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+
+          .imagem-nat20 {
+            width: 63px;
+            height: 70px;
+
+            background-image: var(--icone-nat20);
+            border-radius: 8px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+          }
+
+          .checkbox-nat20 {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px 5px;
+            padding: 10px;
+            width: 240px;
+            align-items: center;
+            justify-content: center;
+            width: 70px;
+            input {
+              width: 20px;
+              height: 20px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
